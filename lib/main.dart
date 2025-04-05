@@ -62,6 +62,19 @@ class _ColorChangerScreenState extends State<ColorChangerScreen> {
     });
   }
 
+  // void _showBottomSheet(BuildContext context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return Container(
+  //         height: 200,
+  //         color: Colors.white,
+  //         child: Center(child: Text('Este es un Modal BottomSheet')),
+  //       );
+  //     },
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +85,6 @@ class _ColorChangerScreenState extends State<ColorChangerScreen> {
           color: colorTexto,
           fontSize: 20,
           fontFamily: 'Roboto', // Especifica la fuente 'Roboto'
-          
         ),
         backgroundColor: _colors[_currentColorIndex],
       ),
@@ -96,12 +108,22 @@ class _ColorChangerScreenState extends State<ColorChangerScreen> {
               onPressed: _changeColor,
               child: const Text('Cambiar color'),
             ),
-
             ElevatedButton(
               onPressed: _resetColor,
               child: const Text('Resetear color'),
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: _colors[_currentColorIndex],
+        child: 
+        Center(child: Text('!!También cambio de color!!',
+        style: TextStyle(
+          fontSize: 20.0,
+          color: colorTexto,
+           ),
+          ),
         ),
       ),
     );
